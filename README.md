@@ -9,6 +9,20 @@ This is a plugin on Revit 2019 for exporting spatial data [boundary, space, conn
 > Visual studio 2019 
 
 ## Architecture 
+#### IndoorGML.Exporter.Revit
+> IndoorGML Revit Plugin
+
+#### IndoorGML.Core
+> Core base class of IndoorGML XML
+- Reading IndoorGML
+- Writing IndoorGML
+- Combining IndoorGMLs
+
+#### IndoorGML.Apdater
+> Received the spatial & connection information export to IndoorGML format
+
+
+
 
 ## Solution file for build
 > Open solution & and do the nuget to restore the dependency thirdparty 
