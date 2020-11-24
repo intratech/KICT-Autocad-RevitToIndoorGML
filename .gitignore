@@ -1,0 +1,7 @@
+
+*.pdb
+obj
+debug
+release
+bin
+packages

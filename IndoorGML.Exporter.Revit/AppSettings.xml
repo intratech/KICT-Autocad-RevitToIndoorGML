@@ -1,0 +1,18 @@
+﻿<?xml version="1.0" encoding="utf-8" ?>
+<Settings>
+  <Export>
+    <WallThickness>1</WallThickness>
+    <ElevatorLabels>
+      <Value>엘레베이터</Value>
+      <Value>E.V</Value>
+      <Value>E/V</Value>
+      <Value>ELEV</Value>
+    </ElevatorLabels>
+    <EscaplatorLabels>
+      <Value>에스컬레이터</Value>
+    </EscaplatorLabels>
+    <StairLabels>
+      <Value>계단실</Value>
+    </StairLabels>
+  </Export>
+</Settings> 
