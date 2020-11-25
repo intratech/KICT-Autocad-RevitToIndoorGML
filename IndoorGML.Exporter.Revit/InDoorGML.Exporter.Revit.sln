@@ -9,6 +9,8 @@ Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndoorGML.Adapter", "..\Ind
 EndProject
 Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "IndoorGML.Core", "..\IndoorGML.Core\IndoorGML.Core.csproj", "{C22CB3F9-CC1B-45B7-A31F-A31BDD6C7127}"
 EndProject
+Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "GML.Core", "..\GML.Core\GML.Core.csproj", "{662A800D-DF5A-419A-9794-2AC447F8DFE4}"
+EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
 		Debug|Any CPU = Debug|Any CPU
@@ -39,6 +41,14 @@ Global
 		{C22CB3F9-CC1B-45B7-A31F-A31BDD6C7127}.Release|Any CPU.Build.0 = Release|Any CPU
 		{C22CB3F9-CC1B-45B7-A31F-A31BDD6C7127}.Release|x64.ActiveCfg = Release|x64
 		{C22CB3F9-CC1B-45B7-A31F-A31BDD6C7127}.Release|x64.Build.0 = Release|x64
+		{662A800D-DF5A-419A-9794-2AC447F8DFE4}.Debug|Any CPU.ActiveCfg = Debug|Any CPU
+		{662A800D-DF5A-419A-9794-2AC447F8DFE4}.Debug|Any CPU.Build.0 = Debug|Any CPU
+		{662A800D-DF5A-419A-9794-2AC447F8DFE4}.Debug|x64.ActiveCfg = Debug|x64
+		{662A800D-DF5A-419A-9794-2AC447F8DFE4}.Debug|x64.Build.0 = Debug|x64
+		{662A800D-DF5A-419A-9794-2AC447F8DFE4}.Release|Any CPU.ActiveCfg = Release|Any CPU
+		{662A800D-DF5A-419A-9794-2AC447F8DFE4}.Release|Any CPU.Build.0 = Release|Any CPU
+		{662A800D-DF5A-419A-9794-2AC447F8DFE4}.Release|x64.ActiveCfg = Release|x64
+		{662A800D-DF5A-419A-9794-2AC447F8DFE4}.Release|x64.Build.0 = Release|x64
 	EndGlobalSection
 	GlobalSection(SolutionProperties) = preSolution
 		HideSolutionNode = FALSE

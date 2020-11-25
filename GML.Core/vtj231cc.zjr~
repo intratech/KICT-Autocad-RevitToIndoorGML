@@ -1,0 +1,374 @@
+﻿using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using Point3DIntra;
+
+namespace CityGML.Core.DTO.Json
+{
+    public class JBaseItem
+    {
+        public int id { get; set; }
+        public string type { get; set; }
+        public string name { get; set; }
+        public int level_id { get; set; }
+    }
+
+
+    [Serializable]
+    public class JModel
+    {
+        public string model_name { get; set; }
+        public JBoundingBox bounding_box { get; set; }
+        public double scale { get; set; }
+        public List<JLevel> levels { get; set; }
+        public List<JRoom> rooms { get; set; }
+        public List<JDoor> doors { get; set; }
+        public List<JWindow> windows { get; set; }
+    }
+    [Serializable]
+    public class JLevel
+    {
+        public string name { get; set; }
+        public int id { get; set; }
+        public double elevation { get; set; }
+    }
+    [Serializable]
+    public class JBoundingBox
+    {
+        public Point3D min { get; set; }
+        public Point3D max { get; set; }
+
+        public JBoundingBox() { }
+        public JBoundingBox(Point3D min, Point3D max)
+        {
+            this.min = min;
+            this.max = max;
+        }
+    }
+    [Serializable]
+    public class JRoom : JBaseItem
+    {
+        public bool? is_elevator { get; set; }
+        public bool? is_escalator { get; set; }
+        public bool? is_stair { get; set; }
+        public Ceiling ceiling { get; set; }
+        public Floor floor { get; set; }
+        public JRoomGeometry geometry { get; set; }
+        public List<JProp> properties { get; set; }
+        public JRoom()
+        {
+            //this.ceilingGMLID = $"GML_{Guid.NewGuid().ToString()}";
+            //this.floorGMLID = $"GML_{Guid.NewGuid().ToString()}";
+            //Declare Floor and Ceiling surfaces
+            SurfaceN floorSurface = new SurfaceN();
+            SurfaceN ceilingSurface = new SurfaceN();
+
+            //Create Floor and ceiling surfaces
+            var boundary = this.geometry.boundary;
+            if (boundary != null)
+            {
+                for (var i = 0; i < boundary.Count; i++)
+                {
+                    Point3D startPoint = new Point3D((float)boundary[i].points[0].x, (float)boundary[i].points[0].y, (float)boundary[i].points[0].z);
+                    Point3D endPoint = new Point3D((float)boundary[i].points[1].x, (float)boundary[i].points[1].y, (float)boundary[i].points[1].z);
+                    if (i == 0)
+                    {
+                        floorSurface.points.Add(startPoint);
+
+                        Point3D newStartPoint = new Point3D(startPoint.x, startPoint.y, 0);
+                        newStartPoint.z = this.geometry.bouding_box.max.z;
+                        ceilingSurface.points.Add(newStartPoint);
+                    }
+                    floorSurface.points.Add(endPoint);
+
+                    Point3D newEndPoint = new Point3D(endPoint.x, endPoint.y, 0);
+                    newEndPoint.z = this.geometry.bouding_box.max.z;
+                    ceilingSurface.points.Add(newEndPoint);
+                }
+                this.ceiling.surface = ceilingSurface;
+                this.floor.surface = floorSurface;
+            }
+        }
+        public List<string> GetWallIDListExcludeClosureSurface()
+        {
+            List<string> wallIDList = new List<string>();
+            var boundaries = this.geometry.boundary;
+            foreach (var seg in boundaries)
+            {
+                if(seg.isClosureSurface != true)
+                    wallIDList.Add(seg.id.ToString());
+            }
+            return wallIDList;
+        }
+    }
+
+    public class Ceiling
+    {
+        public int id;
+        public bool? isClosureSurface;
+        public SurfaceN surface;
+    }
+    public class Floor : Ceiling
+    {
+    }
+
+    [Serializable]
+    public class JProp
+    {
+        public string name { get; set; }
+        public string value { get; set; }
+
+        public JProp(string name, string value)
+        {
+            this.name = name;
+            this.value = value;
+        }
+    }
+
+    [Serializable]
+    public class JRoomGeometry
+    {
+        public JBoundingBox bouding_box { get; set; }
+        public Point3D position { get; set; }
+        public List<JLineSegment> boundary { get; set; }
+    }
+    [Serializable]
+    public class JRoomBoundary
+    {
+        public List<JLineSegment> segments { get; set; }
+        //public List<JCurve> walls { get; set; }
+    }
+    [Serializable]
+    public class JLineSegment
+    {
+        public int id { get; set; }
+        //public int? id2 { get; set; }
+        public bool? isClosureSurface { get; set; }
+        public List<Point3D> points { get; set; }
+        public string gmlID { get; set; }
+
+        public JLineSegment()
+        {
+            this.gmlID = $"GML_{Guid.NewGuid().ToString()}";
+        }
+    }
+
+    [Serializable]
+    public class JDoor : JBaseItem
+    {
+        public int[] roomIds { get; set; }
+        public JDoorGeometry geometry { get; set; }
+
+        public SurfaceN GetSurfaceGeo ()
+        {
+            if (geometry == null)
+                return null;
+
+            if (geometry.positions.Count == 0)
+                return null;
+
+            var width = geometry.width < 0 ? Config.DefaultWidth : geometry.width;
+            var height = geometry.height < 0 ? Config.DefaultHeight : geometry.height;
+            if(id == 354301)
+            {
+                int a = 0;
+                a++;
+            }
+            Point3D doorPos = geometry.positions[0].position;
+            if (geometry.positions.Count== 2)
+            {
+                doorPos = (geometry.positions[0].position + geometry.positions[1].position) / 2;                
+            }
+
+            var segment = geometry.positions[0];
+            var dir = Point3D.CrossProduct(segment.direction, Point3D.Zaxis).GetNormalize();
+            
+            var pos1 = doorPos + dir * width / 2;
+            var pos2 = pos1 + Point3D.Zaxis * height;
+            var pos3 = pos2 - dir * width;
+            var pos4 = doorPos - dir * width / 2;
+
+            SurfaceN surfaceN = new SurfaceN(new List<Point3D> { pos1, pos2, pos3, pos4, pos1 });
+
+            return surfaceN;
+        }
+    }
+
+    [Serializable]
+    public class JWindow : JDoor
+    {
+
+    }
+
+    [Serializable]
+    public class JDoorBaseGeometry
+    {
+        public JBoundingBox bouding_box { get; set; }
+        public Point3D position { get; set; }
+        public Point3D direction { get; set; }
+        public double width { get; set; }
+        public double height { get; set; }
+    }
+    [Serializable]
+    public class JDoorGeometry
+    {
+        public List<Pos> positions { get; set; }
+        public double width { get; set; }
+        public double height { get; set; }
+    }
+    [Serializable]
+    public class Pos
+    {
+        public int segment_id { get; set; }
+        public Point3D position { get; set; }
+        public Point3D direction { get; set; }
+    }
+    [Serializable]
+    public class JWidnow: JDoor
+    {
+
+    }
+
+    public class Box3
+    {
+        public Point3D min;
+        public Point3D center;
+        public Point3D max;
+        public Box3() { }
+        public Box3(Point3D min, Point3D center, Point3D max)
+        { this.min = min; this.center = center; this.max = max; }
+    }
+
+
+    public class DoorSurfaces
+    {
+        public List<SurfaceN> doorSurfaceList;
+        public string id;
+        public string idWall;
+        public Door item;
+        public DoorSurfaces()
+        {
+            this.doorSurfaceList = new List<SurfaceN>();
+        }
+        public DoorSurfaces(List<SurfaceN> doorSurfaceList, string id, string idWall, Door item)
+        {
+            this.doorSurfaceList = doorSurfaceList;
+            this.id = id;
+            this.idWall = idWall;
+            this.item = item;
+        }
+    }
+
+    public class Door
+    {
+        public int id;
+        public JLineSegment segment;
+        public JRoom room;
+        public JDoor door;
+        public Point3D position;
+        public Point3D dir;
+        public Door(int id, JLineSegment segment, JRoom room, JDoor door, Point3D position, Point3D dir)
+        {
+            this.id = id;
+            this.segment = segment;
+            this.room = room;
+            this.door = door;
+            this.position = position;
+            this.dir = dir;
+        }
+        public Door()
+        { }
+    }
+
+
+    public class JWall
+    {
+        public int id;
+        public string type;
+        public string name;
+        public int level_id;
+        public JWallGeometry geometry;
+    }
+
+    public class JWallGeometry
+    {
+        public Point3D direction;
+        public Point3D[] location_curve;
+        public Point3D[] external_faces;
+        public Point3D[] internal_faces;
+    }
+
+    public class SurfaceN
+    {
+        public List<Point3D> points = new List<Point3D>();
+        public SurfaceN(List<Point3D> points)
+        { this.points = points; }
+
+        public SurfaceN()
+        { }
+    }
+
+    public class ExteriorDoor: JWindow
+    {
+        List<SurfaceN> surface = new List<SurfaceN>();
+        //private JDoor door { get; }
+        public ExteriorDoor(JDoor door)
+        {
+            //this.door = door;
+            this.roomIds = door.roomIds;
+            this.geometry = door.geometry;
+            //public JDoorGeometry geometry { get; set; }
+        }
+    }
+
+    public enum ObjName
+    {
+        gml,
+        bldg,
+        id,
+        xsi,
+        xAL,
+        xlink,
+        dem,
+        CityModel,
+        boundedBy,
+        Envelope,
+        lowerCorner,
+        upperCorner,
+        cityObjectMember,
+        Building,
+        interiorRoom,
+        Room,
+        InteriorWallSurface,
+        name,
+        lod4MultiSurface,
+        MultiSurface,
+        surfaceMember,
+        CompositeSurface,
+        Polygon,
+        exterior,
+        interior,
+        LinearRing,
+        posList,
+        opening,
+        Door,
+        OrientableSurface,
+        baseSurface,
+        orientation,
+        href,
+        Window,
+        srsDimension,
+        srsName,
+        schemaLocation,
+        Floor,
+        Ceiling,
+        FloorSurface,
+        CeilingSurface,
+        ClosureSurface,
+        WallSurface,
+        lod4Solid,
+        Solid
+    }
+}

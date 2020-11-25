@@ -51,10 +51,6 @@
     <CodeAnalysisRuleSet>MinimumRecommendedRules.ruleset</CodeAnalysisRuleSet>
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GML.Core, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dll\GML.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
       <HintPath>..\CityGML.Exporter.Revit\packages\Newtonsoft.Json.12.0.3\lib\net45\Newtonsoft.Json.dll</HintPath>
     </Reference>
@@ -89,6 +85,10 @@
     <Compile Include="Vector3Comparer.cs" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GML.Core\GML.Core.csproj">
+      <Project>{662a800d-df5a-419a-9794-2ac447f8dfe4}</Project>
+      <Name>GML.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IndoorGML.Core\IndoorGML.Core.csproj">
       <Project>{c22cb3f9-cc1b-45b7-a31f-a31bdd6c7127}</Project>
       <Name>IndoorGML.Core</Name>

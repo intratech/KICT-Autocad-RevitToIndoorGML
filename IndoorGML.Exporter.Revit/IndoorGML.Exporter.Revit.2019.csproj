@@ -39,10 +39,6 @@
     <StartupObject />
   </PropertyGroup>
   <ItemGroup>
-    <Reference Include="GML.Core, Version=1.0.0.1, Culture=neutral, processorArchitecture=MSIL">
-      <SpecificVersion>False</SpecificVersion>
-      <HintPath>..\Dll\GML.Core.dll</HintPath>
-    </Reference>
     <Reference Include="Intra.Log4Net, Version=1.2.14.0, Culture=neutral, processorArchitecture=MSIL">
       <SpecificVersion>False</SpecificVersion>
       <HintPath>..\Dll\Intra.Log4Net.dll</HintPath>
@@ -164,6 +160,10 @@
     </Resource>
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\GML.Core\GML.Core.csproj">
+      <Project>{662a800d-df5a-419a-9794-2ac447f8dfe4}</Project>
+      <Name>GML.Core</Name>
+    </ProjectReference>
     <ProjectReference Include="..\IndoorGML.Apdater\IndoorGML.Adapter.csproj">
       <Project>{53a8302f-40cb-4b97-b53e-fda1bed735e1}</Project>
       <Name>IndoorGML.Adapter</Name>
