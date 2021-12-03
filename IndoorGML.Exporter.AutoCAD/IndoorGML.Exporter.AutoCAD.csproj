@@ -1,0 +1,239 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="15.0" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{99D3D8BC-B16E-4F84-8051-0A8D6B4A30B0}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <RootNamespace>IndoorGML.Exporter.AutoCAD</RootNamespace>
+    <AssemblyName>IndoorGML.Exporter.AutoCAD</AssemblyName>
+    <TargetFrameworkVersion>v4.7.2</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+    <ProjectTypeGuids>{60dc8134-eba5-43b8-bcc9-bb4bc16c2548};{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}</ProjectTypeGuids>
+    <WarningLevel>4</WarningLevel>
+    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
+    <Deterministic>true</Deterministic>
+    <TargetFrameworkProfile />
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <PlatformTarget>AnyCPU</PlatformTarget>
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+    <Prefer32Bit>false</Prefer32Bit>
+  </PropertyGroup>
+  <PropertyGroup>
+    <StartupObject />
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="accoremgd">
+      <HintPath>..\reference_dlls\accoremgd.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="acdbmgd">
+      <HintPath>..\reference_dlls\acdbmgd.dll</HintPath>
+      <Private>True</Private>
+    </Reference>
+    <Reference Include="acmgd">
+      <HintPath>..\reference_dlls\acmgd.dll</HintPath>
+    </Reference>
+    <Reference Include="AdWindows">
+      <HintPath>..\reference_dlls\AdWindows.dll</HintPath>
+    </Reference>
+    <Reference Include="Autodesk.AutoCAD.Interop.Common">
+      <HintPath>..\reference_dlls\Autodesk.AutoCAD.Interop.Common.dll</HintPath>
+      <EmbedInteropTypes>True</EmbedInteropTypes>
+    </Reference>
+    <Reference Include="ICSharpCode.SharpZipLib, Version=0.86.0.518, Culture=neutral, PublicKeyToken=1b03e6acf1164f73, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.Excel.2.1.1\lib\ICSharpCode.SharpZipLib.dll</HintPath>
+    </Reference>
+    <Reference Include="log4net, Version=2.0.8.0, Culture=neutral, PublicKeyToken=669e0ddf0bb1aa2a, processorArchitecture=MSIL">
+      <HintPath>packages\log4net.2.0.8\lib\net45-full\log4net.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\WindowsAPICodePack-Core.1.1.1\lib\Microsoft.WindowsAPICodePack.dll</HintPath>
+    </Reference>
+    <Reference Include="Microsoft.WindowsAPICodePack.Shell, Version=1.1.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>packages\WindowsAPICodePack-Shell.1.1.1\lib\Microsoft.WindowsAPICodePack.Shell.dll</HintPath>
+    </Reference>
+    <Reference Include="Newtonsoft.Json, Version=12.0.0.0, Culture=neutral, PublicKeyToken=30ad4fe6b2a6aeed, processorArchitecture=MSIL">
+      <HintPath>packages\Newtonsoft.Json.12.0.2\lib\net45\Newtonsoft.Json.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.Excel.2.1.1\lib\NPOI.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OOXML, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.Excel.2.1.1\lib\NPOI.OOXML.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXml4Net, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.Excel.2.1.1\lib\NPOI.OpenXml4Net.dll</HintPath>
+    </Reference>
+    <Reference Include="NPOI.OpenXmlFormats, Version=2.1.1.0, Culture=neutral, PublicKeyToken=0df73ec7942b34e1, processorArchitecture=MSIL">
+      <HintPath>packages\NPOI.Excel.2.1.1\lib\NPOI.OpenXmlFormats.dll</HintPath>
+    </Reference>
+    <Reference Include="Point3DIntra">
+      <HintPath>..\CityGML.Core\DLLs\Point3DIntra.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Drawing" />
+    <Reference Include="System.Windows.Forms" />
+    <Reference Include="System.Xml" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="System.Net.Http" />
+    <Reference Include="System.Xaml">
+      <RequiredTargetFramework>4.0</RequiredTargetFramework>
+    </Reference>
+    <Reference Include="WindowsBase" />
+    <Reference Include="PresentationCore" />
+    <Reference Include="PresentationFramework" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="CAD\API.cs" />
+    <Compile Include="CAD\Extension.cs" />
+    <Compile Include="Commands\IndoorGMLCommand.cs" />
+    <Compile Include="Commands\TestCommand.cs" />
+    <Compile Include="Config.cs" />
+    <Compile Include="Data\DataInfo.cs" />
+    <Compile Include="Data\IndoorGMLFile.cs" />
+    <Compile Include="Entities\BuildingInfo.cs" />
+    <Compile Include="Entities\DoorInfo.cs" />
+    <Compile Include="Entities\GridLevelToMergeItem.cs" />
+    <Compile Include="Entities\Layer.cs" />
+    <Compile Include="Entities\LevelInfo.cs" />
+    <Compile Include="Entities\ModelInfo.cs" />
+    <Compile Include="Entities\PointOnSegment.cs" />
+    <Compile Include="Entities\RoomInfo.cs" />
+    <Compile Include="Entities\TableFilterRow.cs" />
+    <Compile Include="Entities\CadText.cs" />
+    <Compile Include="Entities\UnitInfo.cs" />
+    <Compile Include="Entities\VirtualDoorInfo.cs" />
+    <Compile Include="Enums\Colors.cs" />
+    <Compile Include="IndoorData\IndoorEntity.cs" />
+    <Compile Include="IndoorData\IndoorRoom.cs" />
+    <Compile Include="Palette\IndoorGMLPalette.cs" />
+    <Compile Include="UI\IndoorGMLControl.cs">
+      <SubType>UserControl</SubType>
+    </Compile>
+    <Compile Include="UI\IndoorGMLControl.Designer.cs">
+      <DependentUpon>IndoorGMLControl.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Utils\Extension.cs" />
+    <Compile Include="Utils\IndoorView.cs" />
+    <Compile Include="Utils\LogUtils.cs" />
+    <Compile Include="Utils\MathUtils.cs" />
+    <Compile Include="Utils\PolyUtility.cs" />
+    <Compile Include="Utils\RegSetting.cs" />
+    <Compile Include="Utils\UICreator.cs" />
+    <Compile Include="Utils\UnitSpaceFunctionExcel.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="Commands\Plugin.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs">
+      <SubType>Code</SubType>
+    </Compile>
+    <Compile Include="Properties\Resources.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DesignTime>True</DesignTime>
+      <DependentUpon>Resources.resx</DependentUpon>
+    </Compile>
+    <Compile Include="Properties\Settings.Designer.cs">
+      <AutoGen>True</AutoGen>
+      <DependentUpon>Settings.settings</DependentUpon>
+      <DesignTimeSharedInput>True</DesignTimeSharedInput>
+    </Compile>
+    <EmbeddedResource Include="Properties\Resources.resx">
+      <Generator>ResXFileCodeGenerator</Generator>
+      <LastGenOutput>Resources.Designer.cs</LastGenOutput>
+    </EmbeddedResource>
+    <EmbeddedResource Include="UI\IndoorGMLControl.resx">
+      <DependentUpon>IndoorGMLControl.cs</DependentUpon>
+    </EmbeddedResource>
+    <None Include="Config\unitSpaceClass and Function Code.xlsx">
+      <CopyToOutputDirectory>Always</CopyToOutputDirectory>
+    </None>
+    <None Include="packages.config" />
+    <None Include="Properties\Settings.settings">
+      <Generator>SettingsSingleFileGenerator</Generator>
+      <LastGenOutput>Settings.Designer.cs</LastGenOutput>
+    </None>
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\down-arrow.png">
+      <CopyToOutputDirectory>PreserveNewest</CopyToOutputDirectory>
+    </Resource>
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\navtools-focus.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ribbon_AlignToSurface_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ribbon_AlignToLine_32.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ribbon_AlignToLine_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <Resource Include="Resources\Ribbon_Lines_16.ico" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\export_32.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\export_16.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\export.png" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\export.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Resources\export_16.bmp" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\CityGML.Core\GML.Core.csproj">
+      <Project>{662a800d-df5a-419a-9794-2ac447f8dfe4}</Project>
+      <Name>GML.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\IndoorGMLCore\IndoorGML.Core.csproj">
+      <Project>{5e62f704-7211-4c96-8feb-c309e4b27c42}</Project>
+      <Name>IndoorGML.Core</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\PreProcessor.InDoorGML\IndoorGML.Adapter.csproj">
+      <Project>{53a8302f-40cb-4b97-b53e-fda1bed735e1}</Project>
+      <Name>IndoorGML.Adapter</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup />
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <PropertyGroup>
+    <!-- <PostBuildEvent>"D:\Projects\Project NSIS &amp; INNO\SignTool\SignTool\signtool.exe" sign /f "D:\Projects\Project NSIS &amp; INNO\SignTool\chain\www.intratech.co.kr.pfx" /p tech0000 "D:\Projects\Project_Net\CityGML\CityGML.Exporter.AutoCAD\bin\CityGML.Exporter.AutoCAD.dll"</PostBuildEvent> -->
+  </PropertyGroup>
+  <PropertyGroup>
+    <PostBuildEvent>if $(ConfigurationName) == Release C:\Softwares\ConfuserEx\SecurityCode.exe .\ "$(TargetDir)\" $(TargetFileName)</PostBuildEvent>
+  </PropertyGroup>
+</Project>
