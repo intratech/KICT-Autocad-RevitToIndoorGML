@@ -24,7 +24,9 @@ namespace AutoCadPluginRegister
             { "R21.0","2017" },
             { "R22.0","2018" },
             { "R23.0","2019" },
-            { "R24.0","2021" }
+            {"R23.1","2020" },
+            { "R24.0","2021"},
+            { "R24.1","2022"}
         };
         const string autoCADRegKey = "Software\\Autodesk\\AutoCAD";
         string pluginRegKey = string.Empty; //"CityGML Exporter for AutoCAD";
@@ -95,8 +97,17 @@ namespace AutoCadPluginRegister
                     {
                         if (!Regex.IsMatch(sub, "R\\d+")) continue;
                         if(autoCadVersionMaping.ContainsKey(sub))
-                            CheckExistAndAddToList(sub, listInstalledAutoCadVersions);
+                        {
+                            listInstalledAutoCadVersions.Add(new AutoCADVersion
+                            {
+                                Version = autoCadVersionMaping[sub],
+                                VersionCode = sub,
+                                Display = "AutoCAD " + autoCadVersionMaping[sub]
+                            });
+                        }
                     }
+                            //CheckExistAndAddToList(sub, listInstalledAutoCadVersions);
+                    //}
                 }
             }
             catch{}

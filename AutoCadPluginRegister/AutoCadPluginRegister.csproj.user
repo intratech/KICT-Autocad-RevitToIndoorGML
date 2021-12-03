@@ -1,6 +1,9 @@
 ﻿<?xml version="1.0" encoding="utf-8"?>
 <Project ToolsVersion="Current" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
   <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Debug|AnyCPU'">
-    <StartArguments>-mode install -regKey "CityGML Exporter for AutoCAD" -dllName "C:\Source Code\IndoorGML\CityGML.Exporter.AutoCAD\bin\CityGML.Exporter.AutoCAD.dll"</StartArguments>
+    <StartArguments>-mode install -regKey "IndoorGML Exporter for AutoCAD" -dllName "D:\Work\IndoorGML\CityGML.Exporter.AutoCAD\bin\IndoorGML.Exporter.AutoCAD.dll"</StartArguments>
+  </PropertyGroup>
+  <PropertyGroup Condition="'$(Configuration)|$(Platform)' == 'Release|AnyCPU'">
+    <StartArguments>-mode test -regkey test</StartArguments>
   </PropertyGroup>
 </Project>

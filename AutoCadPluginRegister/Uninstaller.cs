@@ -65,7 +65,16 @@ namespace AutoCadPluginRegister
                     {
                         if (!Regex.IsMatch(sub, "R\\d+")) continue;
                         if (autoCadVersionMaping.ContainsKey(sub))
-                            CheckExistAndAddToList(sub, listInstalledAutoCadVersions);
+                        {
+
+                            listInstalledAutoCadVersions.Add(new AutoCADVersion
+                            {
+                                Version = autoCadVersionMaping[sub],
+                                VersionCode = sub,
+                                Display = "AutoCAD " + autoCadVersionMaping[sub]
+                            });
+                        }
+                            //CheckExistAndAddToList(sub, listInstalledAutoCadVersions);
                     }
                 }
             }

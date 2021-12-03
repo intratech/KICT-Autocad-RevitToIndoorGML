@@ -1,0 +1,513 @@
+{
+  "model_name": "rac_advanced_sample_project.rvt",
+  "bounding_box":{
+    "min": {
+      "x": 0,
+      "y": 0,
+      "z": 0
+    },
+    "max": {
+      "x": 3,
+      "y": 1,
+      "z": 1
+    }
+  },
+  "rooms":[{
+	"geometry":{
+		"bouding_box":{
+          "min": {
+            "x": 0,
+            "y": 0,
+            "z": 0
+          },
+          "max": {
+            "x": 1,
+            "y": 1,
+            "z": 1
+          }
+		},
+		"position":
+		{
+			"x":0.5,
+			"y":0.5,
+			"z":0
+		},
+		"boundary":
+			[
+			{
+				"id": 1,
+				"points":[{
+					"x":0,
+					"y":0,
+					"z":0
+				},
+				{
+					"x":0,
+					"y":1,
+					"z":0
+				}]
+			},
+			{
+				"id": 2,
+				"points":
+				[
+				{
+					"x":0,
+					"y":1,
+					"z":0
+				},
+				{
+					"x":1,
+					"y":1,
+					"z":0
+				}
+				]
+			},
+			{
+				"id": 3,
+				"points":
+				[
+				{
+					"x":1,
+					"y":1,
+					"z":0
+				},
+				{
+					"x":1,
+					"y":0,
+					"z":0
+				}
+				]
+			},
+			{
+				"id": 4,
+				"points":
+				[
+				{
+					"x":1,
+					"y":0,
+					"z":0
+				},
+				{
+					"x":0,
+					"y":0,
+					"z":0
+				}
+				]
+			}
+			]
+	},
+	"properties":null,
+	"id": 177056,
+	"type": "Room",
+	"name": "Vest. 101",
+	"level_id": 311
+  },
+  {
+	"geometry":{
+		"bouding_box":{
+          "min": {
+            "x": 2,
+            "y": 0,
+            "z": 0
+          },
+          "max": {
+            "x": 3,
+            "y": 1,
+            "z": 1
+          }
+		},
+		"position":
+		{
+			"x":2.5,
+			"y":0.5,
+			"z":0
+		},
+		"boundary":
+			[
+			{
+				"id": 5,
+				"points":[{
+					"x":2,
+					"y":0,
+					"z":0
+				},
+				{
+					"x":2,
+					"y":1,
+					"z":0
+				}]
+			},
+			{
+				"id": 6,
+				"points":
+				[
+				{
+					"x":2,
+					"y":1,
+					"z":0
+				},
+				{
+					"x":3,
+					"y":1,
+					"z":0
+				}
+				]
+			},
+			{
+				"id": 7,
+				"points":
+				[
+				{
+					"x":3,
+					"y":1,
+					"z":0
+				},
+				{
+					"x":3,
+					"y":0,
+					"z":0
+				}
+				]
+			},
+			{
+				"id": 8,
+				"points":
+				[
+				{
+					"x":3,
+					"y":0,
+					"z":0
+				},
+				{
+					"x":2,
+					"y":0,
+					"z":0
+				}
+				]
+			}
+			]
+	},
+	"properties":null,
+	"id": 177057,
+	"type": "Room",
+	"name": "Vest. 102",
+	"level_id": 312
+  },
+  {
+	"geometry":{
+		"bouding_box":{
+          "min": {
+            "x": 0,
+            "y": 0,
+            "z": 1
+          },
+          "max": {
+            "x": 1,
+            "y": 1,
+            "z": 2
+          }
+		},
+		"position":
+		{
+			"x":0.5,
+			"y":0.5,
+			"z":1
+		},
+		"boundary":
+			[
+			{
+				"id": 9,
+				"points":[{
+					"x":0,
+					"y":0,
+					"z":1
+				},
+				{
+					"x":0,
+					"y":1,
+					"z":1
+				}]
+			},
+			{
+				"id": 10,
+				"points":
+				[
+				{
+					"x":0,
+					"y":1,
+					"z":1
+				},
+				{
+					"x":1,
+					"y":1,
+					"z":1
+				}
+				]
+			},
+			{
+				"id": 11,
+				"isClosureSurface": true,
+				"points":
+				[
+				{
+					"x":1,
+					"y":1,
+					"z":1
+				},
+				{
+					"x":1,
+					"y":0,
+					"z":1
+				}
+				]
+			},
+			{
+				"id": 12,
+				"points":
+				[
+				{
+					"x":1,
+					"y":0,
+					"z":1
+				},
+				{
+					"x":0,
+					"y":0,
+					"z":1
+				}
+				]
+			}
+			]
+	},
+	"properties":null,
+	"id": 277057,
+	"type": "Room",
+	"name": "Vest. 202",
+	"level_id": 211
+  },
+  {
+	"geometry":{
+		"bouding_box":{
+          "min": {
+            "x": 1,
+            "y": 0,
+            "z": 1
+          },
+          "max": {
+            "x": 3,
+            "y": 1,
+            "z": 2
+          }
+		},
+		"position":
+		{
+			"x":2,
+			"y":0.5,
+			"z":1
+		},
+		"boundary":
+			[
+			{
+				"id": 13,
+				"isClosureSurface": true,
+				"points":[{
+					"x":1,
+					"y":0,
+					"z":1
+				},
+				{
+					"x":1,
+					"y":1,
+					"z":1
+				}]
+			},
+			{
+				"id": 14,
+				"points":
+				[
+				{
+					"x":1,
+					"y":1,
+					"z":1
+				},
+				{
+					"x":3,
+					"y":1,
+					"z":1
+				}
+				]
+			},
+			{
+				"id": 15,
+				"points":
+				[
+				{
+					"x":3,
+					"y":1,
+					"z":1
+				},
+				{
+					"x":3,
+					"y":0,
+					"z":1
+				}
+				]
+			},
+			{
+				"id": 16,
+				"points":
+				[
+				{
+					"x":3,
+					"y":0,
+					"z":1
+				},
+				{
+					"x":1,
+					"y":0,
+					"z":1
+				}
+				]
+			}
+			]
+	},
+	"properties":null,
+	"id": 277058,
+	"type": "Room",
+	"name": "Vest. 204",
+	"level_id": 212
+  }
+  ],
+  "doors":[
+  {
+	"id": 422466,
+	"type": "Door",
+	"name": "800 x 2100",
+	"level_id": 211,
+	"geometry":{
+		"positions":
+		[
+			{
+				"segment_id":1,
+				"position":
+				{
+					"x":0,
+					"y":0.5,
+					"z":0
+				},
+				"direction": 
+				{
+					"x": -1,
+					"y": 0,
+					"z": 0
+				}
+			}
+		],
+		"width": 0.5,
+        "height": 0.7
+	}
+  },
+  {
+	"id": 422467,
+	"type": "Door",
+	"name": "800 x 2100",
+	"level_id": 213,
+	"geometry":{
+		"positions":
+		[
+			{
+				"segment_id":3,
+				"position":
+				{
+					"x":1,
+					"y":0.5,
+					"z":0
+				},
+				"direction": 
+				{
+					"x": 1,
+					"y": 0,
+					"z": 0
+				}
+			},
+			{
+				"segment_id":5,
+				"position":
+				{
+					"x":2,
+					"y":0.5,
+					"z":0
+				},
+				"direction": 
+				{
+					"x": -1,
+					"y": 0,
+					"z": 0
+				}
+			}
+		],
+		"width": 0.5,
+        "height": 0.7
+	}
+  }
+  ],
+"windows":[
+  {
+	"id": 322466,
+	"type": "Window",
+	"name": "800 x 2100",
+	"level_id": 211,
+	"geometry":{
+		"positions":
+		[
+			{
+				"segment_id":2,
+				"position":
+				{
+					"x":0.5,
+					"y":1,
+					"z":0.3
+				},
+				"direction": 
+				{
+					"x": 0,
+					"y": 1,
+					"z": 0
+				}
+			}
+		],
+		"width": 0.5,
+    "height": 0.5
+	}
+  },
+  {
+	"id": 322467,
+	"type": "Window",
+	"name": "800 x 2100",
+	"level_id": 213,
+	"geometry":{
+		"positions":
+		[
+			{
+				"segment_id":7,
+				"position":
+				{
+					"x":3,
+					"y":0.5,
+					"z":0.3
+				},
+				"direction": 
+				{
+					"x": 1,
+					"y": 0,
+					"z": 0
+				}
+			}
+		],
+		"width": 0.5,
+        "height": 0.5
+	}
+  }
+  ]
+}
